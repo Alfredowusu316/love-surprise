@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+  }
+  .box { width: min(90%, 500px); }
+  input, button {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 0;
+    margin: 5px;
+  }
+  button { cursor: pointer; }
+  #love { display: none; font-size: 28px; line-height: 1.5; }
+  .hearts { margin-top: 20px; font-size: 34px; animation: pulse 1s infinite; }
+  @keyframes pulse { 50% { transform: scale(1.08); } }
+</style>
+</head>
+<body>
+<div class="box">
+  <div id="start">
+    <h1>💌 A Little Surprise</h1>
+    <p>Type your name:</p>
+    <input id="name" type="text" placeholder="Your name">
+    <button onclick="showLove()">Open</button>
+  </div>
+
+  <div id="love">
+    <h1 id="greeting"></h1>
+    <p>You found the surprise! ❤️</p>
+    <div class="hearts">❤️ 💖 💕 💗 💓 💘 ❤️</div>
+  </div>
+</div>
+
+<script>
+function showLove() {
+  const name = document.getElementById("name").value.trim();
+  if (!name) {
+    alert("Please type your name.");
+    return;
+  }
+  document.getElementById("greeting").textContent = "For " + name + " ❤️";
+  document.getElementById("start").style.display = "none";
+  document.getElementById("love").style.display = "block";
+}
+</script>
+</body>
+</html>
